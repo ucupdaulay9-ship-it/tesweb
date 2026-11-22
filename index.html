@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Untuk Kamu 💌</title>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital@0;1&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="blob b1"></div><div class="blob b2"></div><div class="sky skyg" id="skyEnd"></div>
+<canvas id="petals"></canvas><canvas id="fx"></canvas><div class="hearts" id="hearts"></div><div class="heaven" id="heaven"></div><div class="bqw"><div class="bq l"></div><div class="bq r"></div></div>
+<audio id="bgm" loop></audio>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><linearGradient id="hg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ff8fb0"/><stop offset="1" stop-color="#d63b6b"/></linearGradient></defs></svg>
+<button class="ctl" id="mus" aria-label="Musik">🎵</button>
+<button class="ctl fs" id="fs" aria-label="Layar penuh">⛶</button>
+<button class="ctl back" id="back" aria-label="Kembali" hidden>‹</button>
+<button class="egg" id="egg" aria-label="Rahasia">🤍</button>
+<div class="modal" id="secret"><div class="card"><h2>Pesan Rahasia 🤫</h2><p id="stext"></p><br><button id="sclose">Tutup</button></div></div>
+
+<!-- 1. Gembok -->
+<section class="scene on" id="gate"><div class="in"><div class="card">
+  <div class="lock" id="lock">🔒</div>
+  <h1>Ada sesuatu spesial untuk kamu 💌</h1>
+  <p>Jawab satu pertanyaan kecil dulu ya, biar aku tahu ini benar-benar kamu.</p>
+  <div class="q">“Tanggal balikan kita?”</div>
+  <input type="date" id="ans" aria-label="Tanggal balikan">
+  <button id="open">Buka gembok</button>
+  <div class="hint" id="hint"></div>
+</div></div></section>
+
+<!-- 2. Hitung kebersamaan -->
+<section class="scene" id="count"><div class="in">
+  <div class="clk"><i></i><i></i><i></i></div>
+  <h2>Waktu Kamu di Dunia 🌍</h2>
+  <p id="cintro">Sejak hari kamu lahir, sudah…</p>
+  <div class="tg" id="tg"></div>
+  <p class="fade" id="cnote">…aku bersyukur punya kamu di sisiku. 🤎</p>
+  <p class="fade ctip" id="ctip">sentuh tiap kartu untuk membaca pesannya 💌</p><br>
+  <button class="fade" id="cgo" data-next="greet">Lanjut ❤</button>
+</div></section>
+
+<!-- 3. Ucapan utama -->
+<section class="scene" id="greet"><div class="in">
+  <div class="sub" id="typed"></div>
+  <h2 class="name fade" id="gname"></h2>
+  <button class="fade" data-next="letter">Ada surat untukmu 💌</button>
+</div></section>
+
+<!-- 4. Surat cinta -->
+<section class="scene" id="letter"><div class="bkw" id="bkw"></div><div class="in">
+  <div class="env3" id="env">
+    <div class="ev eb"></div>
+    <div class="ev ep"><span>Untuk kamu</span></div>
+    <div class="ev el"></div><div class="ev er"></div><div class="ev eu"></div>
+    <div class="ev efl"></div>
+    <div class="seal">❤</div>
+    <p class="envhint">Sentuh segel untuk membuka</p>
+  </div>
+  <div class="paper" id="paper" hidden></div><br>
+  <button class="fade" id="voice" hidden>🎙️ Putar voice note</button>
+  <button class="fade" id="lnext" data-next="gallery">Lihat kenangan kita 📸</button>
+</div></section>
+
+<!-- 5. Galeri -->
+<section class="scene" id="gallery"><div class="in">
+  <h2>Kenangan Kita</h2><br>
+  <div class="g" id="gal"></div><br>
+  <button data-next="timeline">Perjalanan kita →</button>
+</div></section>
+
+<!-- 6. Timeline -->
+<section class="scene" id="timeline"><div class="in">
+  <h2>Perjalanan Kita</h2><br>
+  <div class="tl" id="tl"></div>
+  <button data-next="reasons">Alasan aku sayang kamu →</button>
+</div></section>
+
+<!-- 7. Alasan -->
+<section class="scene" id="reasons"><div class="sky" id="skyRe"></div><div class="in">
+  <h2>19 Alasan Aku Sayang Kamu</h2>
+  <p>Sentuh kartunya satu per satu 🤍</p><br>
+  <div class="rg" id="rg"></div><br>
+  <button class="fade" id="rnext" data-next="map">Lihat jarak di antara kita 🗺️</button>
+</div></section>
+
+<!-- 7b. Peta jarak -->
+<section class="scene" id="map"><div class="in" style="max-width:700px">
+  <h2>Jarak Kita 🗺️</h2>
+  <div class="mapbox">
+    <svg id="msvg" viewBox="0 0 360 436" role="img" aria-label="Peta ilustrasi dari Lhokseumawe ke Tebing Tinggi"></svg>
+    <svg id="msvg2" viewBox="0 0 360 436" aria-hidden="true"></svg>
+    <div class="mapui"><div class="km"><b id="kmv">0</b> km</div><small id="kmt"></small></div>
+  </div>
+  <div class="facts fade" id="facts"></div>
+  <p class="fade" id="mtext"></p><br>
+  <button class="fade" id="mgo" data-next="video">Lanjut, lihat film kecil kita 🎬</button>
+</div></section>
+
+<!-- 8b. Video sinematik -->
+<section class="scene" id="video"><div class="in" style="max-width:760px">
+  <h2>Film Kecil Kita 🎬</h2><br>
+  <div class="cframe"><div class="cine">
+    <video id="vid" playsinline controls preload="metadata" poster="poster.jpg"></video>
+    <div class="vg"></div>
+    <div class="vt" id="vt"><h2>Kisah Kita</h2><p>a cinematic memory</p></div>
+  </div></div><br>
+  <p id="vph" hidden>Video belum dipasang. Taruh file <b>video.mp4</b> di folder yang sama ya 🎞️</p><br>
+  <button data-next="cake">Lanjut, ucapkan harapan ✨</button>
+</div></section>
+
+<!-- 8. Tulis harapan & tiup lilin -->
+<section class="scene" id="cake"><div class="sky" id="skyCake"></div><div class="in">
+  <div class="card wish" id="wishStep">
+    <h2>Make a wish…</h2>
+    <p>Sebelum meniup lilin, tuliskan harapanmu. Tidak disimpan dan tidak dikirim ke mana pun, hanya kamu yang tahu 🤍</p>
+    <textarea id="wishText" rows="3" maxlength="140" placeholder="Aku berharap…"></textarea>
+    <button id="wishSend">Kirim harapan ✨</button>
+  </div>
+  <div id="blowStep" hidden>
+    <h2>Tiup lilinnya</h2>
+    <div class="cake" id="cakeBox"></div>
+    <p id="chint">Tiup lewat mikrofon, atau sentuh apinya 🕯️</p>
+    <div class="row"><button id="blow">🎤 Tiup lilin</button><button class="fade" id="cnext" data-next="end">Lanjut ❤</button></div>
+  </div>
+</div></section>
+
+<!-- 9. Penutup -->
+<section class="scene" id="end"><div class="in">
+  <h2 id="endname"></h2>
+  <p class="big" id="endtext"></p><br>
+  <button class="fade" id="ctirai">Tutup tirai 🎭</button>
+</div></section>
+
+<!-- Tirai (pembuka & penutup) -->
+<div class="cur" id="cur" tabindex="0" role="button" aria-label="Tirai. Geser dari tengah ke kanan dan kiri untuk membuka">
+  <div class="cp cpl"></div><div class="cp cpr"></div>
+  <div class="cseam"></div><div class="cval"></div>
+  <div class="ctx">
+    <div class="c-start"><h1>Coba Buka Mbull</h1></div>
+    <div class="c-end">
+      <h1>Sampai jumpa di kisah berikutnya 🤍</h1>
+      <div class="cbtns"><a class="btn" id="cwa" target="_blank" rel="noopener">Kirim balasan ❤️</a><button id="cagain">Putar ulang 🔁</button></div>
+    </div>
+    <div class="chint"><i>‹</i><b></b><i>›</i></div>
+    <p class="chtxt">Geser dari tengah ke kanan &amp; kiri untuk membuka tirai</p>
+    <div class="c-start cfsrow"><button type="button" id="cfs">⛶ Perbesar layar</button></div>
+  </div>
+</div>
+<script src="config.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
